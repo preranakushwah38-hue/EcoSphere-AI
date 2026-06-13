@@ -1,0 +1,149 @@
+Upgrade EcoSphere AI into a complete hackathon-winning sustainability platform.
+
+Navigation & UX
+
+- Add a Home button in the sidebar.
+- Clicking the EcoSphere AI logo should always return to Home/Dashboard.
+- Highlight active page.
+- Add breadcrumb navigation.
+- Mobile responsive design.
+- Smooth page transitions and animations.
+
+Dynamic Data & Database
+
+- Remove all hardcoded values.
+- Store user data in a database.
+- Dashboard statistics must update automatically from user inputs.
+- Connect all modules together.
+- Generate real-time charts and trends.
+
+AI Assistant
+
+- Connect Google Gemini API.
+- Provide real sustainability advice based on user inputs.
+- Answer different questions intelligently.
+- Maintain chat history.
+- Generate personalized eco recommendations.
+
+Leaderboard & Gamification
+
+Add a leaderboard and achievement system.
+
+Features:
+
+- XP points
+- Levels
+- Badges
+- Weekly rankings
+- Sustainability streaks
+- Achievement notifications
+- Eco Champion leaderboard
+
+Display them on Dashboard and Profile pages.
+
+Waste Scanner (AI Vision)
+
+Create a Waste Scanner page.
+
+Users can:
+
+- Upload an image
+- Take a photo using camera
+
+Classify waste as:
+
+- Plastic
+- Paper
+- Glass
+- Metal
+- Organic
+- E-Waste
+
+Show:
+
+- Recycling instructions
+- Environmental impact
+- Disposal recommendations
+- Confidence score
+
+Use a modern drag-and-drop upload interface.
+
+EcoScore AI
+
+Create a dedicated EcoScore AI page.
+
+Users enter:
+
+- Daily travel
+- Electricity usage
+- Water usage
+- Food habits
+- Waste habits
+
+Generate:
+
+- Eco Score (0–100)
+- Carbon footprint estimate
+- Sustainability grade (A+ to F)
+- Personalized recommendations
+- Weekly improvement plan
+
+Display results with:
+
+- Interactive charts
+- Progress bars
+- Animations
+- Sustainability insights
+
+Smart Reports
+
+Generate downloadable PDF reports.
+
+Include:
+
+- Eco score
+- Carbon footprint
+- Water usage
+- Energy usage
+- Waste analysis
+- Improvement suggestions
+
+Community Challenges
+
+Create community sustainability challenges.
+
+Examples:
+
+- No Plastic Week
+- Water Saving Challenge
+- Green Transport Week
+
+Features:
+
+- Join challenge
+- Track progress
+- Earn XP
+- Leaderboard integration
+
+Dashboard Enhancements
+
+Add:
+
+- Real-time eco score
+- AI sustainability insights
+- Recent activity feed
+- Weekly trends
+- Environmental impact summary
+- Quick action buttons
+
+Professional UI
+
+- Modern glassmorphism design
+- Smooth animations
+- Dark/light mode
+- Attractive charts
+- Premium hackathon-quality interface
+
+Ensure all pages are fully functional and connected.
+No placeholder data.
+Use real calculations and dynamic updates throughout the application.

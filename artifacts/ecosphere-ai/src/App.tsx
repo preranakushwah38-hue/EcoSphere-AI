@@ -22,6 +22,8 @@ import ChallengesPage from "@/pages/ChallengesPage";
 import ReportsPage from "@/pages/ReportsPage";
 import ProfilePage from "@/pages/ProfilePage";
 import EcoCoachPage from "@/pages/EcoCoachPage";
+import WasteScannerPage from "@/pages/WasteScannerPage";
+import LeaderboardPage from "@/pages/LeaderboardPage";
 
 const queryClient = new QueryClient();
 
@@ -42,10 +44,12 @@ function Router() {
       <Route path="/ai-assistant"><AppLayout><AIAssistantPage /></AppLayout></Route>
       <Route path="/calculator"><AppLayout><CalculatorPage /></AppLayout></Route>
       <Route path="/waste-analyzer"><AppLayout><WasteAnalyzerPage /></AppLayout></Route>
+      <Route path="/waste-scanner"><AppLayout><WasteScannerPage /></AppLayout></Route>
       <Route path="/water-tracker"><AppLayout><WaterTrackerPage /></AppLayout></Route>
       <Route path="/energy"><AppLayout><EnergyPage /></AppLayout></Route>
       <Route path="/community"><AppLayout><CommunityPage /></AppLayout></Route>
       <Route path="/challenges"><AppLayout><ChallengesPage /></AppLayout></Route>
+      <Route path="/leaderboard"><AppLayout><LeaderboardPage /></AppLayout></Route>
       <Route path="/reports"><AppLayout><ReportsPage /></AppLayout></Route>
       <Route path="/profile"><AppLayout><ProfilePage /></AppLayout></Route>
       <Route path="/eco-coach"><AppLayout><EcoCoachPage /></AppLayout></Route>

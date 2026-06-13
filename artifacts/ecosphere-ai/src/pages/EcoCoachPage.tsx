@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -248,9 +249,10 @@ export default function EcoCoachPage() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [savedScore, setSavedScore] = useState(false);
   const [savingScore, setSavingScore] = useState(false);
+  const { toast } = useToast();
 
   const handleSaveScore = async () => {
-    if (!result) return;
+    if (!result || savingScore) return;
     setSavingScore(true);
     try {
       const cats = result.categories;
@@ -258,13 +260,22 @@ export default function EcoCoachPage() {
       const energy = cats.find(c => c.label === "Energy")?.score ?? 0;
       const water = cats.find(c => c.label === "Water")?.score ?? 0;
       const diet = cats.find(c => c.label === "Diet")?.score ?? 0;
-      await fetch("/api/eco-scores", {
+      const response = await fetch("/api/eco-scores", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ecoScore: result.total, travelScore: travel, energyScore: energy, waterScore: water, dietScore: diet }),
       });
+      if (!response.ok) throw new Error("Save failed");
       setSavedScore(true);
-    } catch { /* ignore */ } finally { setSavingScore(false); }
+      toast({
+        title: "Eco Score saved!",
+        description: `Your score of ${result.total}/100 has been saved to your Dashboard.`,
+      });
+    } catch {
+      toast({ title: "Could not save score", description: "Please try again.", variant: "destructive" });
+    } finally {
+      setSavingScore(false);
+    }
   };
 
   const handleAnalyze = () => {

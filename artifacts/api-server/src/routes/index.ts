@@ -6,6 +6,7 @@ import waterRouter from "./water";
 import wasteRouter from "./waste";
 import ecoScoresRouter from "./ecoScores";
 import dashboardRouter from "./dashboard";
+import wasteScannerRouter from "./wasteScanner";
 
 const router: IRouter = Router();
 
@@ -16,5 +17,6 @@ router.use(waterRouter);
 router.use(wasteRouter);
 router.use(ecoScoresRouter);
 router.use(dashboardRouter);
+router.use(wasteScannerRouter);
 
 export default router;
