@@ -13,7 +13,8 @@ import {
   Moon,
   Sun,
   Menu,
-  Leaf
+  Leaf,
+  BrainCircuit
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
@@ -29,6 +30,7 @@ const navGroups = [
     items: [
       { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
       { name: "AI Assistant", href: "/ai-assistant", icon: Bot },
+      { name: "Eco Coach", href: "/eco-coach", icon: BrainCircuit },
     ]
   },
   {

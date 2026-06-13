@@ -21,6 +21,7 @@ import CommunityPage from "@/pages/CommunityPage";
 import ChallengesPage from "@/pages/ChallengesPage";
 import ReportsPage from "@/pages/ReportsPage";
 import ProfilePage from "@/pages/ProfilePage";
+import EcoCoachPage from "@/pages/EcoCoachPage";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ function Router() {
       <Route path="/challenges"><AppLayout><ChallengesPage /></AppLayout></Route>
       <Route path="/reports"><AppLayout><ReportsPage /></AppLayout></Route>
       <Route path="/profile"><AppLayout><ProfilePage /></AppLayout></Route>
+      <Route path="/eco-coach"><AppLayout><EcoCoachPage /></AppLayout></Route>
 
       <Route component={NotFound} />
     </Switch>
