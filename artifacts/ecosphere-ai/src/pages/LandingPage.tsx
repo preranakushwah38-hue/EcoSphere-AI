@@ -81,26 +81,34 @@ export default function LandingPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Carbon Tracking", desc: "Real-time analysis of your daily emissions from transport to food." },
-              { icon: Zap, title: "Energy Optimization", desc: "AI-driven insights to reduce your home energy consumption and bills." },
-              { icon: Users, title: "Community Impact", desc: "Join thousands of others in global challenges and climb the leaderboard." },
-              { icon: Droplet, title: "Water Conservation", desc: "Monitor daily water usage and discover actionable saving opportunities." },
-              { icon: Recycle, title: "Waste Intelligence", desc: "Smart categorization tools to improve your recycling diversion rate." },
-              { icon: BarChart3, title: "Sustainability Reports", desc: "Weekly comprehensive breakdowns of your overall environmental impact." }
+              { icon: Globe, title: "Carbon Tracking", desc: "Real-time analysis of your daily emissions from transport to food.", href: "/calculator" },
+              { icon: Zap, title: "Energy Optimization", desc: "AI-driven insights to reduce your home energy consumption and bills.", href: "/energy" },
+              { icon: Users, title: "Community Impact", desc: "Join thousands of others in global challenges and climb the leaderboard.", href: "/community" },
+              { icon: Droplet, title: "Water Conservation", desc: "Monitor daily water usage and discover actionable saving opportunities.", href: "/water-tracker" },
+              { icon: Recycle, title: "Waste Intelligence", desc: "Smart categorization tools to improve your recycling diversion rate.", href: "/waste-analyzer" },
+              { icon: BarChart3, title: "Sustainability Reports", desc: "Weekly comprehensive breakdowns of your overall environmental impact.", href: "/reports" }
             ].map((feature, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card p-8 rounded-2xl border border-border/60 shadow-sm hover:shadow-md transition-shadow group"
               >
-                <div className="p-3 rounded-xl bg-primary/10 w-fit mb-6 group-hover:scale-110 transition-transform">
-                  <feature.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                <Link
+                  href={feature.href}
+                  data-testid={`link-feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="block h-full bg-card p-8 rounded-2xl border border-border/60 shadow-sm hover:shadow-md hover:border-primary/40 hover:-translate-y-1 transition-all duration-200 group cursor-pointer"
+                >
+                  <div className="p-3 rounded-xl bg-primary/10 w-fit mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-200">
+                    <feature.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-200">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                  <div className="mt-4 flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    Explore <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
