@@ -19,3 +19,7 @@
 
 export * from "./conversations";
 export * from "./messages";
+export * from "./carbonEntries";
+export * from "./waterEntries";
+export * from "./wasteEntries";
+export * from "./ecoScores";

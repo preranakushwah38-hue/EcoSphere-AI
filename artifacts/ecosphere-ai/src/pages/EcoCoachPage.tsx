@@ -246,9 +246,30 @@ export default function EcoCoachPage() {
   const [result, setResult] = useState<{ total: number; categories: CategoryScore[] } | null>(null);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [savedScore, setSavedScore] = useState(false);
+  const [savingScore, setSavingScore] = useState(false);
+
+  const handleSaveScore = async () => {
+    if (!result) return;
+    setSavingScore(true);
+    try {
+      const cats = result.categories;
+      const travel = cats.find(c => c.label === "Travel")?.score ?? 0;
+      const energy = cats.find(c => c.label === "Energy")?.score ?? 0;
+      const water = cats.find(c => c.label === "Water")?.score ?? 0;
+      const diet = cats.find(c => c.label === "Diet")?.score ?? 0;
+      await fetch("/api/eco-scores", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ecoScore: result.total, travelScore: travel, energyScore: energy, waterScore: water, dietScore: diet }),
+      });
+      setSavedScore(true);
+    } catch { /* ignore */ } finally { setSavingScore(false); }
+  };
 
   const handleAnalyze = () => {
     setIsAnalyzing(true);
+    setSavedScore(false);
     setResult(null);
     setTimeout(() => {
       const r = calcScore(form);
@@ -748,6 +769,21 @@ export default function EcoCoachPage() {
                     </div>
                   </CardContent>
                 </Card>
+
+                {savedScore ? (
+                  <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold text-sm p-3 bg-green-500/10 rounded-xl border border-green-500/20 w-full">
+                    <CheckCircle2 className="h-5 w-5 shrink-0" /> Score saved to Dashboard!
+                  </div>
+                ) : (
+                  <Button
+                    onClick={handleSaveScore}
+                    disabled={savingScore}
+                    className="w-full gap-2 h-11 bg-gradient-to-r from-primary to-accent text-white border-none shadow-md hover:opacity-90"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    {savingScore ? "Saving…" : "Save Score to Dashboard"}
+                  </Button>
+                )}
 
                 <Button
                   data-testid="button-recalculate"
